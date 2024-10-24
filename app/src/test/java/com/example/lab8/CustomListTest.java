@@ -59,4 +59,18 @@ public class CustomListTest {
 
         assertFalse(cityList.hasCity(city));
     }
+
+    void testCountCities() {
+        // MainActivity initializes a list with 6 cities in it
+        CustomList cityList = MockCityList();
+
+        assertEquals(1, cityList.countCities());
+
+        City calgary = new City("Calgary", "AB", 2);
+        City toronto = new City("Toronto", "ON", 3);
+        cityList.add(calgary);
+        cityList.add(toronto);
+
+        assertEquals(3, cityList.countCities());
+    }
 }
