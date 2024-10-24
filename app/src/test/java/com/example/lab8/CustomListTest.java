@@ -2,6 +2,8 @@ package com.example.lab8;
 
 import static junit.framework.TestCase.assertEquals;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -44,5 +46,23 @@ public class CustomListTest {
         cityList.addCity(city);
 
         assertTrue(cityList.hasCity(city));
+    }
+
+    @Test
+    void testDeleteCity() {
+        City mock_city = new City("Edmonton", "AB");
+        CustomList cityList = MockCityList();
+
+        City city = new City("Edmonton", "AB");
+
+        cityList.add(city);
+        cityList.deleteCity(city);
+
+        assertFalse(cityList.hasCity(city));
+        assertTrue(cityList.hasCity(mock_city));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            cityList.deleteCity(city);
+        });
     }
 }
