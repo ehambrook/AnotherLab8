@@ -6,7 +6,7 @@ public class City {
     private String province;
     private int id;
 
-    public City(String city, String province){
+    public City(String city, String province, int id){
         this.city = city;
         this.province = province;
         this.id = id;
